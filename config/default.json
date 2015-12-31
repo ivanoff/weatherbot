@@ -1,0 +1,7 @@
+{
+
+  "token": "put your Slack bot token here",
+
+  "channels": "weather,rand"
+
+}

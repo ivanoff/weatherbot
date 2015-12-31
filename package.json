@@ -1,0 +1,42 @@
+{
+  "name": "weather-bot",
+  "version": "0.1.1",
+  "description": "a Slack bot that shows weather",
+  "keywords": [
+    "Slack",
+    "bot",
+    "weather"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivanoff/weather-bot"
+  },
+  "bugs": {
+    "url": "https://github.com/ivanoff/weather-bot/issues"
+  },
+  "main": "lib/weather-bot.js",
+  "bin": {
+    "weather-bot": "bin/bot.js"
+  },
+  "scripts": {
+    "start": "node bin/bot.js",
+    "test": "node_modules/.bin/mocha -w"
+  },
+  "author": {
+    "name": "Dimitry Ivanov",
+    "email": "2@ivanoff.org.ua"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "async": "^1.4.1",
+    "city-weather": "^1.0.4",
+    "config": "^1.17.1",
+    "mocha": "^2.3.3",
+    "progress": "^1.1.8",
+    "request": "^2.60.0",
+    "slackbots": "^0.3.0"
+  }
+}
