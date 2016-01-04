@@ -140,8 +140,34 @@ describe('rules module', function () {
     it('Weatherbot, you are the tin can', function (done) {
       r.getCityName( 'Weatherbot, you are the tin can', function( err, name, text ){
         name.should.be.a.String();
-        name.should.equal('~say');
-        text.should.equal('Yes, I\'m the tin can :)');
+        name.should.equal('~set');
+        text.should.equal('the tin can');
+        done();
+      });
+    });
+
+    it('Weatherbot, who are you?', function (done) {
+      r.getCityName( 'Weatherbot, who are you?', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~get');
+        done();
+      });
+    });
+
+    it('Weatherbot, are you the tin can?', function (done) {
+      r.getCityName( 'Weatherbot, are you the tin can?', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~get');
+        text.should.equal('the tin can');
+        done();
+      });
+    });
+
+    it('No, Weatherbot, you are the tin-tin can', function (done) {
+      r.getCityName( 'No, Weatherbot, you are the tin-tin can', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~set');
+        text.should.equal('the tin-tin can');
         done();
       });
     });
@@ -204,8 +230,8 @@ describe('rules module', function () {
       });
     });
 
-    it('ha-ha', function (done) {
-      r.getCityName( 'ha-ha', function( err, name, text ){
+    it('Ha-haha', function (done) {
+      r.getCityName( 'Ha-haha', function( err, name, text ){
         name.should.be.a.String();
         name.should.equal('~smile');
         done();

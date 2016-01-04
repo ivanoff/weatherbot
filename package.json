@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "node bin/bot.js",
-    "test": "node_modules/.bin/mocha -w"
+    "test": "node_modules/.bin/mocha"
   },
   "author": {
     "name": "Dimitry Ivanov",
