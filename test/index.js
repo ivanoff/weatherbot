@@ -188,6 +188,14 @@ describe('rules module', function () {
       });
     });
 
+    it('help', function (done) {
+      r.getCityName( 'help', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~hello');
+        done();
+      });
+    });
+
     it('cool', function (done) {
       r.getCityName( 'cool', function( err, name, text ){
         name.should.be.a.String();
