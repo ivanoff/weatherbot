@@ -46,6 +46,13 @@ describe('weather module', function () {
       });
     });
 
+    it('city unknown or something wrong', function (done) {
+      w.weatherByCity( 'city unknown or something wrong', function( err, data ){
+        data[0].should.be.equal('City was not found');
+        done();
+      });
+    });
+
   });
       
 });

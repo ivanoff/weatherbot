@@ -16,7 +16,7 @@
   },
   "main": "lib/bot.js",
   "bin": {
-    "weather-bot": "bin/bot.js"
+    "weatherbot": "bin/bot.js"
   },
   "scripts": {
     "start": "node bin/bot.js",
