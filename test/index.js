@@ -107,31 +107,103 @@ describe('rules module', function () {
       });
     });
 
+  });
+  
+
+  describe('get city names from bad message', function () {
     it('Can you not to show weather in New York city?', function (done) {
-      r.getCityName( 'Can you not to show weather in New York city?', function( err, name ){
+      r.getCityName( 'Can you not to show weather in New York city?', function( err, name, text ){
         name.should.be.a.String();
-        name.should.equal('New York');
+        name.should.equal('~say');
+        text.should.equal('Gee... There is no weather in New York, pal :)');
         done();
       });
     });
 
     it("I don't want to know what in Oslo", function (done) {
-      r.getCityName( "I don't want to know what in Oslo", function( err, name ){
+      r.getCityName( "I don't want to know what in Oslo", function( err, name, text ){
         name.should.be.a.String();
-        name.should.equal('Oslo');
+        name.should.equal('~say');
+        text.should.equal('Gee... There is no weather in Oslo, pal :)');
         done();
       });
     });
-  });
-  
-  describe('get city names from bad message', function () {
+
     it('if the city is new york in lowercase, then what about it?', function (done) {
       r.getCityName( 'if the city is new york in lowercase, then what about it?', function( err, name ){
         name.should.be.a.String();
-        name.should.equal('if the city is new york in lowercase, then what about it');
+        name.should.equal('~error');
         done();
       });
     });
+
+    it('Weatherbot, you are the tin can', function (done) {
+      r.getCityName( 'Weatherbot, you are the tin can', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~say');
+        text.should.equal('Yes, I\'m the tin can :)');
+        done();
+      });
+    });
+
+    it('weatherbot can help', function (done) {
+      r.getCityName( 'weatherbot can help', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~smile');
+        done();
+      });
+    });
+
+    it('thanks', function (done) {
+      r.getCityName( 'thanks', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~thanks');
+        done();
+      });
+    });
+
+    it('bot, you are the tin can', function (done) {
+      r.getCityName( 'bot, you are the tin can', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~error');
+        text.should.equal('BAD CITY NAME: bot, you are the tin can');
+        done();
+      });
+    });
+
+    it(':smile:', function (done) {
+      r.getCityName( ':smile:', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~error');
+        text.should.equal('BAD CITY NAME: :smile');
+        done();
+      });
+    });
+
+    it('hello', function (done) {
+      r.getCityName( 'hello', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~hello');
+        done();
+      });
+    });
+
+    it('cool', function (done) {
+      r.getCityName( 'cool', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~smile');
+        done();
+      });
+    });
+
+    it('ha-ha', function (done) {
+      r.getCityName( 'ha-ha', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~smile');
+        done();
+      });
+    });
+
   });
 
 });
