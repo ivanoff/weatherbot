@@ -137,6 +137,22 @@ describe('rules module', function () {
       });
     });
 
+    it('Weatherbot, who I am?', function (done) {
+      r.getCityName( 'Weatherbot, who I am?', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~who');
+        done();
+      });
+    });
+
+    it('Who I am?', function (done) {
+      r.getCityName( 'Who I am?', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~who');
+        done();
+      });
+    });
+
     it('Weatherbot, you are the tin can', function (done) {
       r.getCityName( 'Weatherbot, you are the tin can', function( err, name, text ){
         name.should.be.a.String();
