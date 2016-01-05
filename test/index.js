@@ -153,6 +153,15 @@ describe('rules module', function () {
       });
     });
 
+    it('Who I am?', function (done) {
+      r.getCityName( '<@U188FTX16|dr.cool> has joined the channel', function( err, name, text ){
+        name.should.be.a.String();
+        name.should.equal('~helloNew');
+        text.should.equal('dr.cool');
+        done();
+      });
+    });
+
     it('Weatherbot, you are the tin can', function (done) {
       r.getCityName( 'Weatherbot, you are the tin can', function( err, name, text ){
         name.should.be.a.String();
